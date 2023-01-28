@@ -1,0 +1,89 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header Styles */
+  header {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin-left: 20px;
+  }
+  
+  #menu-icon {
+    display: none; /* only display on mobile */
+  }
+  
+  #menu {
+    display: flex; /* default display value */
+  }
+  
+  #menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #menu li {
+    margin: 0 20px;
+  }
+  
+  #menu a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  #social-icons img {
+    width: 30px;
+    margin: 0 10px;
+  }
+  
+  /* Dot Navigation Styles */
+  #dot-nav {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    display: flex;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .active {
+    background-color: rgb(255, 255, 255);
+  }
+  
+  /* Main Content Styles */
+  main {
+    padding: 50px;
+  }
+  
+  .page {
+    display: none; /* default value, only show active page */
+  }
+  
+  .active {
+    display: block; /* show active page */
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
