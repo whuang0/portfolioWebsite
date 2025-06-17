@@ -1,80 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wilson Huang's Portfolio</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <script type="text/javascript" src="script.js"></script>
+    <title>Wilson Huang</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   </head>
   <body>
-    <header>
-      <nav>
-        <div id="menu-icon" onclick="toggleMenu()">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-        
-        <div id="menu" style ="float:left">
-          <ul>
-            <li><a href="#about-me" onclick="changePage(0)">About Me</a></li> 
-            <li><a href="#skills" onclick="changePage(1)">Skills</a></li>
-            <li><a href="#projects" onclick="changePage(2)">Projects</a></li>
-            <li><a href="#contact-info" onclick="changePage(3)">Contact</a></li>
-          </ul>
-        </div>
-        <div id="social-icons"style="display: inline-block;">
-          <a href="https://github.com/whuang0" target="_blank"><img src="assets/Github.png"></a>
-          <a href="https://www.linkedin.com/in/whuang0/" target="_blank"><img src="assets/LinkedIn_logo_initials.png"></a>
-        </div>
-      </nav>
-      <h1>Wilson Huang</h1>
-    </header>
-    <div id="dot-nav">
-      <span id="dot-0" class="dot active" onclick="changePage(0)"></span>
-      <span id="dot-1" class="dot" onclick="changePage(1)"></span>
-      <span id="dot-2" class="dot" onclick="changePage(2)"></span>
-      <span id="dot-3" class="dot" onclick="changePage(3)"></span>
-    </div>
-    <main>
-      <section id="about-me" class="page active">
-        <h2>About Me</h2>
-        <p>My journey in computer science began during my high school years, when I first discovered a passion for programming and problem-solving. I was fascinated by the idea of creating software that could automate tasks and make people's lives easier. I knew then that I wanted to pursue a career in computer science.</p>
-        <p>I am passionate about using technology to create innovative solutions that improve people's lives. I am particularly interested in the areas of artificial intelligence, machine learning, and data science. I believe that these technologies have the potential to transform the way we live and work, and I am excited about the opportunities that they present.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum vel malesuada venenatis, velit velit blandit nibh, a molestie ante velit vel magna. Sed euismod urna id urn </p>
-      </section>
-      <section id="skills" class="page active">
-        <h2>Skills</h2>
-        <ul>
-          <li>Java</li>
-          <li>Python</li>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>C/C++</li>
-          <li>JavaScript</li>
-        </ul>
-      </section>
-      <section id="projects" class="page active">
-        <h2>Projects</h2>
-        <ul>
-          <li>CinemaData Project</li>
-            <img src="assets\Cinema.png">
-            <img src="assets\Cinema2.png"> 
-          <li>Project 2</li>
-            <img src = "C:\Users\whuan\Downloads\Project2.png">
-          <li>Project 3</li>
-            <img src = "C:\Users\whuan\Downloads\Project3.png">
-        </ul>
-      </section>
-      <section id="contact-info" class="page active">
-        <h2>Contact</h2>
-        <p><a href = "mailto: whuang88@binghamton.edu">Email</a>: whuang88@binghamtion.edu </p> 
-        <p>Phone: 914-486-8982</p>
-        <p>Location: Binghamton, NY</p>
-      </section>
-    </main>
-    <footer>
-      <p>Copyright © 2022 Wilson Huang</p>
-    </footer>
+    <div id="root"></div>
+    <script type="text/babel" src="app.jsx"></script>
   </body>
 </html>
-
