@@ -65,7 +65,7 @@ header h1 {
   cursor: pointer;
 }
 
-.active {
+.dot.active {
   background-color: rgb(255, 255, 255);
 }
 
@@ -75,11 +75,23 @@ main {
 }
 
 .page {
-  display: none; /* default value, only show active page */
+  display: none;
 }
 
-.active {
-  display: block; /* show active page */
+.page.show {
+  display: block;
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer Styles */
