@@ -144,32 +144,126 @@ body {
   padding: 2rem;
 }
 
+/* Hero Section Styles */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(180deg, var(--background) 0%, rgba(10, 10, 22, 0.95) 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, var(--primary) 0%, transparent 50%);
+  opacity: 0.03;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+
+.scroll-text {
+  font-size: 1rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.scroll-arrow {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--primary), transparent);
+  border-radius: 1px;
+}
+
+/* Section Animations */
 .section {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
+  margin: 6rem auto;
+  padding: 0 2rem;
+  perspective: 1000px;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section-content {
-  background-color: var(--surface);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(0, 255, 245, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 3rem;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.6, -0.05, 0.01, 0.99);
 }
 
-.section-content:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--neon-glow);
+.section-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(45deg, transparent, var(--primary), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.section-content:hover::before {
+  opacity: 1;
 }
 
 .section-title {
-  color: var(--primary);
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  position: relative;
-  text-shadow: var(--neon-glow);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(120deg, var(--text), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  animation: gradient-shift 8s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .section-title::after {
@@ -492,16 +586,16 @@ body {
 /* Cyberpunk Specific Styles */
 .title-container {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
-.cyber-line {
+.title-underline {
   position: absolute;
   bottom: -10px;
   left: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  box-shadow: var(--neon-glow);
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+  border-radius: 2px;
 }
 
 .section-title.glitch {
