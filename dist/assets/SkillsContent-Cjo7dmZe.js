@@ -1,0 +1,1 @@
+import{j as a,m as i,S as e,s as l,f as n}from"./index-D2wHOd-K.js";const m=()=>a.jsx(i.div,{variants:l,className:"skills-grid",children:e.flatMap(t=>t.items.map(s=>a.jsx(i.div,{className:"skill-item",variants:n,children:s},s)))});export{m as default};
