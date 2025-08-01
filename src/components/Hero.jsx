@@ -4,7 +4,7 @@ import { useTypingEffect } from '../hooks/useTypingEffect';
 import { PERSONAL_INFO } from '../constants';
 
 const Hero = () => {
-  const { displayText } = useTypingEffect(`Hello, I'm ${PERSONAL_INFO.name}`, { delay: 1000 });
+  const { displayText } = useTypingEffect(`Hello, I'm ${PERSONAL_INFO.name}`, { delay: 100 });
 
   return (
     <motion.section

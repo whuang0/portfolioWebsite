@@ -67,11 +67,10 @@ body {
 
 .typing-text {
   display: inline-block;
-  border-right: 2px solid var(--primary);
-  padding-right: 5px;
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  animation: typing 3.5s steps(40, end);
   white-space: nowrap;
   overflow: hidden;
+  width: fit-content;
 }
 
 @keyframes typing {
@@ -129,7 +128,6 @@ body {
   width: 24px;
   height: 24px;
   transition: all 0.3s ease;
-  filter: brightness(0) invert(1);
 }
 
 .social-icon:hover {
@@ -483,7 +481,6 @@ body {
 .social-item img {
   width: 24px;
   height: 24px;
-  filter: brightness(0) invert(1);
   transition: all 0.3s ease;
 }
 

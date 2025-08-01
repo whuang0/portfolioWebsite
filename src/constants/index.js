@@ -1,7 +1,7 @@
 export const PERSONAL_INFO = {
   name: "Wilson Huang",
   location: "New York, NY",
-  email: "your.email@example.com",
+  email: "whuang88@binghamton.edu",
   status: "Open to opportunities"
 };
 
@@ -18,12 +18,12 @@ export const SKILLS = [
     items: [
       'React.js',
       'TypeScript',
-      'JavaScript (ES6+)',
+      'JavaScript',
       'HTML5/CSS3',
       'Redux',
       'Responsive Design',
       'Material-UI',
-      'Webpack'
+      'Figma / Photoshop'
     ]
   },
   {
@@ -49,9 +49,6 @@ export const SKILLS = [
       'AWS',
       'CI/CD',
       'Linux/Unix',
-      'Nginx',
-      'Jenkins',
-      'Kubernetes'
     ]
   },
   {
@@ -73,13 +70,13 @@ export const SKILLS = [
 export const SOCIAL_LINKS = [
   {
     id: 'github',
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/whuang0',
     icon: '/assets/Github.png',
     label: 'GitHub'
   },
   {
     id: 'linkedin',
-    url: 'https://linkedin.com/in/yourusername',
+    url: 'https://linkedin.com/in/whuang0',
     icon: '/assets/LinkedIn_logo_initials.png',
     label: 'LinkedIn'
   }
