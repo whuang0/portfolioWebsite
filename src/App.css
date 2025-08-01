@@ -71,6 +71,8 @@ body {
   white-space: nowrap;
   overflow: hidden;
   width: fit-content;
+  border-right: 2px solid var(--primary);
+  padding-right: 5px;
 }
 
 @keyframes typing {
@@ -183,6 +185,33 @@ body {
   letter-spacing: -0.02em;
 }
 
+.hero-title-typing {
+  position: relative;
+  display: inline-block;
+}
+
+.typing-visible {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.typing-invisible {
+  opacity: 0;
+  z-index: 1;
+  /* This reserves the space for the full text */
+}
+
+/* Remove any existing typing animations that change width */
+.typing-text {
+  animation: none;
+  border-right: none;
+  padding-right: 0;
+  overflow: visible;
+  white-space: normal;
+  width: auto;
+}
 .scroll-indicator {
   display: flex;
   flex-direction: column;
@@ -877,4 +906,116 @@ body {
   z-index: 9999;
   mix-blend-mode: difference;
   transition: transform 0.1s ease;
+}
+
+/* Glitch Text Effect */
+.glitch-text {
+  position: relative;
+  color: var(--text);
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  animation: glitch-anim-1 0.3s infinite linear alternate-reverse;
+  color: var(--primary);
+  z-index: -1;
+}
+
+.glitch-text::after {
+  animation: glitch-anim-2 0.3s infinite linear alternate-reverse;
+  color: var(--secondary);
+  z-index: -2;
+}
+
+@keyframes glitch-anim-1 {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+    transform: skew(0.85deg);
+  }
+  5% {
+    clip: rect(12px, 9999px, 59px, 0);
+    transform: skew(0.4deg);
+  }
+  10% {
+    clip: rect(59px, 9999px, 29px, 0);
+    transform: skew(0.7deg);
+  }
+  15% {
+    clip: rect(86px, 9999px, 66px, 0);
+    transform: skew(0.1deg);
+  }
+  20% {
+    clip: rect(20px, 9999px, 87px, 0);
+    transform: skew(0.6deg);
+  }
+  25% {
+    clip: rect(91px, 9999px, 45px, 0);
+    transform: skew(0.2deg);
+  }
+  30% {
+    clip: rect(6px, 9999px, 13px, 0);
+    transform: skew(0.9deg);
+  }
+  35% {
+    clip: rect(95px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  40% {
+    clip: rect(40px, 9999px, 26px, 0);
+    transform: skew(0.5deg);
+  }
+  45% {
+    clip: rect(55px, 9999px, 98px, 0);
+    transform: skew(0.8deg);
+  }
+  50% {
+    clip: rect(33px, 9999px, 71px, 0);
+    transform: skew(0.4deg);
+  }
+}
+
+/* Terminal Loading Effect */
+.terminal-loader {
+  background: rgba(0, 0, 0, 0.9);
+  color: var(--primary);
+  font-family: 'Courier New', monospace;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  border: 1px solid var(--primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-loader::before {
+  content: '> ';
+  color: var(--secondary);
+}
+
+.typing-terminal {
+  border-right: 2px solid var(--primary);
+  animation: typing-terminal 2s steps(40, end), blink-terminal 0.75s step-end infinite;
+}
+
+@keyframes typing-terminal {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-terminal {
+  from, to { border-color: transparent }
+  50% { border-color: var(--primary) }
 }

@@ -7,7 +7,7 @@ import { fadeIn, fadeInUp } from '../constants/animations';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const { displayText } = useTypingEffect(`Hello, I'm ${PERSONAL_INFO.name}_`);
+  const { displayText } = useTypingEffect(`Hello, I'm ${PERSONAL_INFO.name}`);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);

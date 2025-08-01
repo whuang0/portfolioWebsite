@@ -4,7 +4,8 @@ import { useTypingEffect } from '../hooks/useTypingEffect';
 import { PERSONAL_INFO } from '../constants';
 
 const Hero = () => {
-  const { displayText } = useTypingEffect(`Hello, I'm ${PERSONAL_INFO.name}`, { delay: 100 });
+  const fullText = `Hello, I'm ${PERSONAL_INFO.name}`;
+  const { displayText } = useTypingEffect(fullText, { delay: 0 });
 
   return (
     <motion.section
@@ -20,7 +21,7 @@ const Hero = () => {
         transition={{ duration: 1, delay: 0.5 }}
       >
         <motion.h1
-          className="hero-title"
+          className="hero-title hero-title-typing"
           initial={{ 
             opacity: 0,
             scale: 0.95,
@@ -37,7 +38,8 @@ const Hero = () => {
             ease: [0.6, -0.05, 0.01, 0.99]
           }}
         >
-          {displayText}
+          <span className="typing-visible">{displayText}</span>
+          <span className="typing-invisible">{fullText}</span>
         </motion.h1>
         <motion.div
           className="scroll-indicator"
@@ -84,4 +86,4 @@ const Hero = () => {
   );
 };
 
-export default Hero; 
+export default Hero;
