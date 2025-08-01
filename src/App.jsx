@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import Layout from './components/layout/Layout';
 import Section from './components/Section';
 import ErrorBoundary from './components/ErrorBoundary';
+import ParticleSystem from './components/ParticleSystem';
+import FloatingActionButtons from './components/FloatingActionButtons';
 import { SKILLS, PERSONAL_INFO } from './constants';
 import { fadeInUp, staggerChildren } from './constants/animations';
 import './App.css';
@@ -35,6 +37,7 @@ const App = () => {
   return (
     <ErrorBoundary fallback={<ErrorFallback />}>
       <Layout>
+        <ParticleSystem />
         <Suspense fallback={<LoadingFallback />}>
           <Section 
             id="about"
@@ -54,9 +57,10 @@ const App = () => {
             content={<ContactContent />}
           />
         </Suspense>
+        <FloatingActionButtons />
       </Layout>
     </ErrorBoundary>
   );
 };
 
-export default App; 
+export default App;
