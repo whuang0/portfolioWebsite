@@ -1,3 +1,6 @@
+import githubIcon from '../assets/Github.png';
+import linkedinIcon from '../assets/LinkedIn_logo_initials.png';
+
 export const PERSONAL_INFO = {
   name: "Wilson Huang",
   location: "New York, NY",
@@ -71,13 +74,13 @@ export const SOCIAL_LINKS = [
   {
     id: 'github',
     url: 'https://github.com/whuang0',
-    icon: '/assets/Github.png',
+    icon: githubIcon,
     label: 'GitHub'
   },
   {
     id: 'linkedin',
     url: 'https://linkedin.com/in/whuang0',
-    icon: '/assets/LinkedIn_logo_initials.png',
+    icon: linkedinIcon,
     label: 'LinkedIn'
   }
 ]; 
