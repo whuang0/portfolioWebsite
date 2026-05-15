@@ -167,6 +167,82 @@ const revealObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
+/* ── Anime companion ── */
+(function () {
+  const wrap     = document.getElementById('anime-char-wrap');
+  const charSvg  = document.getElementById('anime-char');
+  const bubble   = document.getElementById('char-bubble');
+  const bubbleTx = document.getElementById('char-bubble-text');
+  const irisL    = document.getElementById('iris-l');
+  const irisR    = document.getElementById('iris-r');
+  const lidL     = document.getElementById('lid-l');
+  const lidR     = document.getElementById('lid-r');
+  if (!wrap || !charSvg) return;
+
+  /* Eye follow */
+  document.addEventListener('mousemove', e => {
+    const rect  = charSvg.getBoundingClientRect();
+    const scale = rect.width / 180;
+    function offset(eyeCx, eyeCy) {
+      const dx = e.clientX - (rect.left + eyeCx * scale);
+      const dy = e.clientY - (rect.top  + eyeCy * scale);
+      const d  = Math.hypot(dx, dy) || 1;
+      const f  = Math.min(d, 120) / 120 * 4.5;
+      return { x: (dx / d) * f, y: (dy / d) * f };
+    }
+    const oL = offset(68, 97), oR = offset(112, 97);
+    if (irisL) irisL.style.transform = `translate(${oL.x}px,${oL.y}px)`;
+    if (irisR) irisR.style.transform = `translate(${oR.x}px,${oR.y}px)`;
+  });
+
+  /* Blink */
+  function doBlink() {
+    if (!lidL || !lidR) return;
+    lidL.style.transform = lidR.style.transform = 'scaleY(1)';
+    setTimeout(() => {
+      lidL.style.transform = lidR.style.transform = 'scaleY(0.02)';
+      setTimeout(doBlink, 2600 + Math.random() * 3400);
+    }, 145);
+  }
+  setTimeout(doBlink, 1600);
+
+  /* Speech bubble */
+  let bubbleTimer = null;
+  function showBubble(text) {
+    clearTimeout(bubbleTimer);
+    bubbleTx.textContent = text;
+    bubble.classList.add('visible');
+  }
+  function hideBubble(delay) {
+    clearTimeout(bubbleTimer);
+    bubbleTimer = setTimeout(() => bubble.classList.remove('visible'), delay || 0);
+  }
+
+  /* Hover reactions */
+  document.querySelectorAll('.btn-primary').forEach(b => {
+    b.addEventListener('mouseenter', () => { wrap.classList.add('char-waving');   showBubble('check it out! →'); });
+    b.addEventListener('mouseleave', () => { wrap.classList.remove('char-waving'); hideBubble(400); });
+  });
+  document.querySelectorAll('.btn-ghost').forEach(b => {
+    b.addEventListener('mouseenter', () => { wrap.classList.add('char-excited');   showBubble("let's chat! ♡"); });
+    b.addEventListener('mouseleave', () => { wrap.classList.remove('char-excited'); hideBubble(400); });
+  });
+  document.querySelectorAll('.nav-links a, .mm-link').forEach(a => {
+    a.addEventListener('mouseenter', () => showBubble('// ' + a.textContent.trim().toLowerCase()));
+    a.addEventListener('mouseleave', () => hideBubble(300));
+  });
+  const quips = ['nice one!', 'so cool~', 'impressive!', 'ooh this one!', '*studying*'];
+  let qi = 0;
+  document.querySelectorAll('.project-card, .project-featured').forEach(c => {
+    c.addEventListener('mouseenter', () => showBubble(quips[qi++ % quips.length]));
+    c.addEventListener('mouseleave', () => hideBubble(300));
+  });
+  document.querySelectorAll('.ccard').forEach(c => {
+    c.addEventListener('mouseenter', () => showBubble('reach out! ✉'));
+    c.addEventListener('mouseleave', () => hideBubble(300));
+  });
+})();
+
 /* ── Skill bars ── */
 let skillsAnimated = false;
 const skillsSection = document.getElementById('skills');

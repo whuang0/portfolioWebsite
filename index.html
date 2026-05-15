@@ -320,6 +320,122 @@
     </span>
   </footer>
 
+  <!-- ── Anime companion ── -->
+  <div id="anime-char-wrap">
+    <div class="char-bubble" id="char-bubble"><span id="char-bubble-text">hello!</span></div>
+    <svg id="anime-char" viewBox="0 0 180 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <clipPath id="clip-eye-l"><ellipse cx="68" cy="97" rx="16" ry="18"/></clipPath>
+        <clipPath id="clip-eye-r"><ellipse cx="112" cy="97" rx="16" ry="18"/></clipPath>
+      </defs>
+
+      <!-- Back hair -->
+      <path d="M90,38 Q150,44 150,98 Q150,156 140,170 Q128,184 118,176 Q130,158 132,102 Q132,56 90,48 Q48,56 48,102 Q50,158 62,176 Q52,184 40,170 Q30,156 30,98 Q30,44 90,38Z" fill="#12121f"/>
+
+      <!-- Body -->
+      <path d="M57,172 Q44,186 38,245 L142,245 Q136,186 123,172Z" fill="#0D1018"/>
+      <path d="M59,176 Q48,192 44,220" fill="none" stroke="#05D9E8" stroke-width="1.5" opacity="0.5"/>
+      <path d="M121,176 Q132,192 136,220" fill="none" stroke="#05D9E8" stroke-width="1.5" opacity="0.5"/>
+      <path d="M72,170 L90,190 L108,170" fill="none" stroke="#FCE22A" stroke-width="1.8" stroke-linejoin="round"/>
+      <rect x="80" y="202" width="20" height="12" rx="2" fill="none" stroke="#05D9E8" stroke-width="1" opacity="0.8"/>
+      <text x="90" y="211" text-anchor="middle" fill="#05D9E8" font-size="5.5" font-family="monospace">WH</text>
+
+      <!-- Left arm -->
+      <path d="M63,176 Q48,194 43,213 Q40,222 45,226" fill="none" stroke="#0D1018" stroke-width="15" stroke-linecap="round"/>
+      <path d="M63,176 Q48,194 43,213 Q40,222 45,226" fill="none" stroke="#1a1a2e" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="46" cy="226" r="7" fill="#f2b896"/>
+
+      <!-- Right arm (waving) -->
+      <g id="arm-r">
+        <path d="M117,176 Q132,166 140,153 Q148,141 144,130" fill="none" stroke="#0D1018" stroke-width="15" stroke-linecap="round"/>
+        <path d="M117,176 Q132,166 140,153 Q148,141 144,130" fill="none" stroke="#1a1a2e" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="143" cy="128" r="7" fill="#f2b896"/>
+        <line x1="143" y1="122" x2="140" y2="114" stroke="#f2b896" stroke-width="4" stroke-linecap="round"/>
+        <line x1="143" y1="122" x2="147" y2="115" stroke="#f2b896" stroke-width="4" stroke-linecap="round"/>
+        <line x1="143" y1="122" x2="150" y2="120" stroke="#f2b896" stroke-width="4" stroke-linecap="round"/>
+      </g>
+
+      <!-- Neck -->
+      <rect x="82" y="157" width="16" height="18" rx="4" fill="#f2b896"/>
+
+      <!-- Face -->
+      <ellipse cx="90" cy="100" rx="52" ry="56" fill="#f5c9a8"/>
+
+      <!-- Ears -->
+      <ellipse cx="38" cy="102" rx="8" ry="11" fill="#efb090"/>
+      <ellipse cx="142" cy="102" rx="8" ry="11" fill="#efb090"/>
+      <rect x="30" y="97" width="10" height="6" rx="2" fill="#05D9E8" opacity="0.85"/>
+      <circle cx="30" cy="97" r="2.5" fill="#05D9E8"/>
+      <rect x="140" y="97" width="10" height="6" rx="2" fill="#05D9E8" opacity="0.85"/>
+      <circle cx="150" cy="97" r="2.5" fill="#05D9E8"/>
+
+      <!-- Left eye -->
+      <ellipse cx="68" cy="97" rx="16" ry="18" fill="white"/>
+      <g clip-path="url(#clip-eye-l)">
+        <g id="iris-l">
+          <ellipse cx="68" cy="97" rx="11" ry="12" fill="#05D9E8"/>
+          <ellipse cx="68" cy="94" rx="7" ry="5" fill="#2ae8f5" opacity="0.4"/>
+          <ellipse cx="68" cy="97" rx="6" ry="7" fill="#07090F"/>
+          <ellipse cx="71" cy="93" rx="2.5" ry="2.8" fill="white" opacity="0.92"/>
+          <ellipse cx="66" cy="101" rx="1.2" ry="1.2" fill="white" opacity="0.55"/>
+        </g>
+      </g>
+      <g id="lid-l"><ellipse cx="68" cy="97" rx="17" ry="19" fill="#f5c9a8"/></g>
+      <path d="M52,89 Q68,80 84,89" fill="#1a1a2e"/>
+      <path d="M54,108 Q68,114 82,108" fill="none" stroke="#c0a090" stroke-width="0.8" opacity="0.45"/>
+
+      <!-- Right eye -->
+      <ellipse cx="112" cy="97" rx="16" ry="18" fill="white"/>
+      <g clip-path="url(#clip-eye-r)">
+        <g id="iris-r">
+          <ellipse cx="112" cy="97" rx="11" ry="12" fill="#05D9E8"/>
+          <ellipse cx="112" cy="94" rx="7" ry="5" fill="#2ae8f5" opacity="0.4"/>
+          <ellipse cx="112" cy="97" rx="6" ry="7" fill="#07090F"/>
+          <ellipse cx="115" cy="93" rx="2.5" ry="2.8" fill="white" opacity="0.92"/>
+          <ellipse cx="110" cy="101" rx="1.2" ry="1.2" fill="white" opacity="0.55"/>
+        </g>
+      </g>
+      <g id="lid-r"><ellipse cx="112" cy="97" rx="17" ry="19" fill="#f5c9a8"/></g>
+      <path d="M96,89 Q112,80 128,89" fill="#1a1a2e"/>
+      <path d="M98,108 Q112,114 126,108" fill="none" stroke="#c0a090" stroke-width="0.8" opacity="0.45"/>
+
+      <!-- Eyebrows -->
+      <path id="brow-l" d="M55,77 Q68,71 81,76" fill="none" stroke="#1a1a2e" stroke-width="2.8" stroke-linecap="round"/>
+      <path id="brow-r" d="M99,76 Q112,71 125,77" fill="none" stroke="#1a1a2e" stroke-width="2.8" stroke-linecap="round"/>
+
+      <!-- Nose -->
+      <path d="M87,114 Q90,119 93,114" fill="none" stroke="#c09878" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- Mouth: normal smile -->
+      <path id="mouth-n" d="M81,128 Q90,136 99,128" fill="none" stroke="#c09878" stroke-width="2" stroke-linecap="round"/>
+      <!-- Mouth: excited (hidden by default) -->
+      <g id="mouth-x" opacity="0">
+        <path d="M79,127 Q90,139 101,127" fill="none" stroke="#c09878" stroke-width="2" stroke-linecap="round"/>
+        <path d="M81,129 Q90,139 99,129 L90,141Z" fill="#e8a0b0" opacity="0.38"/>
+      </g>
+
+      <!-- Blush -->
+      <ellipse cx="56" cy="116" rx="11" ry="5.5" fill="#ffb3c0" opacity="0.42"/>
+      <ellipse cx="124" cy="116" rx="11" ry="5.5" fill="#ffb3c0" opacity="0.42"/>
+
+      <!-- Front hair -->
+      <ellipse cx="90" cy="52" rx="54" ry="22" fill="#12121f"/>
+      <path d="M36,73 Q44,56 59,78 Q50,87 41,83Z" fill="#12121f"/>
+      <path d="M55,63 Q65,48 77,72 Q66,83 58,78Z" fill="#12121f"/>
+      <path d="M74,57 Q90,43 99,68 Q88,80 78,74Z" fill="#12121f"/>
+      <path d="M101,59 Q113,47 122,70 Q111,82 104,76Z" fill="#12121f"/>
+      <path d="M122,65 Q133,53 141,74 Q134,86 126,80Z" fill="#12121f"/>
+      <path d="M36,88 Q28,114 31,144 Q35,158 42,154 Q40,132 40,100Z" fill="#12121f"/>
+      <path d="M144,88 Q152,114 149,144 Q145,158 138,154 Q140,132 140,100Z" fill="#12121f"/>
+      <!-- Yellow highlight streak -->
+      <path d="M117,50 Q128,44 130,66 Q122,80 118,72Z" fill="#FCE22A" opacity="0.82"/>
+      <!-- Cyan hair clip -->
+      <rect x="80" y="42" width="20" height="7" rx="3.5" fill="#05D9E8"/>
+      <line x1="83" y1="42" x2="83" y2="49" stroke="#07090F" stroke-width="1" opacity="0.4"/>
+      <line x1="97" y1="42" x2="97" y2="49" stroke="#07090F" stroke-width="1" opacity="0.4"/>
+    </svg>
+  </div>
+
   <script src="animations.js"></script>
 </body>
 </html>

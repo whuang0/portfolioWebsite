@@ -853,6 +853,93 @@ footer {
   gap: 5px;
 }
 
+/* ── Anime companion ── */
+#anime-char-wrap {
+  position: fixed;
+  bottom: 36px;
+  right: 36px;
+  z-index: 50;
+  user-select: none;
+  pointer-events: none;
+}
+#anime-char {
+  width: 148px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 20px rgba(5,217,232,0.22)) drop-shadow(0 0 48px rgba(5,217,232,0.07));
+  animation: char-float 3.2s ease-in-out infinite;
+}
+@keyframes char-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-11px); }
+}
+
+/* Eyelids */
+#lid-l, #lid-r {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  transform: scaleY(0.02);
+  transition: transform 0.12s ease;
+}
+
+/* Arm wave */
+#arm-r { transform-origin: 117px 176px; }
+.char-waving #arm-r { animation: arm-wave 0.56s ease-in-out infinite; }
+@keyframes arm-wave {
+  0%, 100% { transform: rotate(0deg); }
+  38%       { transform: rotate(-28deg); }
+  78%       { transform: rotate(10deg); }
+}
+
+/* Excited state */
+.char-excited #anime-char { animation: char-float 3.2s ease-in-out infinite, char-bob 0.38s ease-in-out infinite; }
+@keyframes char-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-5px) rotate(1.5deg); }
+}
+.char-excited #mouth-n    { opacity: 0; }
+.char-excited #mouth-x    { opacity: 1 !important; }
+.char-excited #brow-l,
+.char-excited #brow-r     { transform: translateY(-3px); transform-box: fill-box; }
+
+/* Speech bubble */
+.char-bubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 10px;
+  background: rgba(7,9,15,0.96);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: .04em;
+  padding: 6px 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(6px) scale(0.9);
+  transform-origin: bottom right;
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+.char-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  right: 22px;
+  border: 7px solid transparent;
+  border-top-color: var(--cyan);
+  border-bottom: none;
+}
+.char-bubble.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+@media (max-width: 900px) {
+  #anime-char { width: 108px; }
+  #anime-char-wrap { bottom: 20px; right: 14px; }
+}
+@media (max-width: 520px) { #anime-char-wrap { display: none; } }
+
 /* ── Scroll progress bar ── */
 #scroll-progress {
   position: fixed;
