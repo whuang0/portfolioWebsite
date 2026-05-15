@@ -1,80 +1,325 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Wilson Huang's Portfolio</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <script type="text/javascript" src="script.js"></script>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <div id="menu-icon" onclick="toggleMenu()">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-        
-        <div id="menu" style ="float:left">
-          <ul>
-            <li><a href="#about-me" onclick="changePage(0)">About Me</a></li> 
-            <li><a href="#skills" onclick="changePage(1)">Skills</a></li>
-            <li><a href="#projects" onclick="changePage(2)">Projects</a></li>
-            <li><a href="#contact-info" onclick="changePage(3)">Contact</a></li>
-          </ul>
-        </div>
-        <div id="social-icons"style="display: inline-block;">
-          <a href="https://github.com/whuang0" target="_blank"><img src="assets/Github.png"></a>
-          <a href="https://www.linkedin.com/in/whuang0/" target="_blank"><img src="assets/LinkedIn_logo_initials.png"></a>
-        </div>
-      </nav>
-      <h1>Wilson Huang</h1>
-    </header>
-    <div id="dot-nav">
-      <span id="dot-0" class="dot active" onclick="changePage(0)"></span>
-      <span id="dot-1" class="dot" onclick="changePage(1)"></span>
-      <span id="dot-2" class="dot" onclick="changePage(2)"></span>
-      <span id="dot-3" class="dot" onclick="changePage(3)"></span>
-    </div>
-    <main>
-      <section id="about-me" class="page active">
-        <h2>About Me</h2>
-        <p>My journey in computer science began during my high school years, when I first discovered a passion for programming and problem-solving. I was fascinated by the idea of creating software that could automate tasks and make people's lives easier. I knew then that I wanted to pursue a career in computer science.</p>
-        <p>I am passionate about using technology to create innovative solutions that improve people's lives. I am particularly interested in the areas of artificial intelligence, machine learning, and data science. I believe that these technologies have the potential to transform the way we live and work, and I am excited about the opportunities that they present.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, ipsum vel malesuada venenatis, velit velit blandit nibh, a molestie ante velit vel magna. Sed euismod urna id urn </p>
-      </section>
-      <section id="skills" class="page active">
-        <h2>Skills</h2>
-        <ul>
-          <li>Java</li>
-          <li>Python</li>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>C/C++</li>
-          <li>JavaScript</li>
-        </ul>
-      </section>
-      <section id="projects" class="page active">
-        <h2>Projects</h2>
-        <ul>
-          <li>CinemaData Project</li>
-            <img src="assets\Cinema.png">
-            <img src="assets\Cinema2.png"> 
-          <li>Project 2</li>
-            <img src = "C:\Users\whuan\Downloads\Project2.png">
-          <li>Project 3</li>
-            <img src = "C:\Users\whuan\Downloads\Project3.png">
-        </ul>
-      </section>
-      <section id="contact-info" class="page active">
-        <h2>Contact</h2>
-        <p><a href = "mailto: whuang88@binghamton.edu">Email</a>: whuang88@binghamtion.edu </p> 
-        <p>Phone: 914-486-8982</p>
-        <p>Location: Binghamton, NY</p>
-      </section>
-    </main>
-    <footer>
-      <p>Copyright © 2022 Wilson Huang</p>
-    </footer>
-  </body>
-</html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wilson Huang — Software Developer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
+  <canvas id="canvas"></canvas>
+
+  <!-- ── NAVBAR ── -->
+  <div id="scroll-progress"></div>
+  <nav id="navbar">
+    <a href="#hero" class="nav-brand">WH<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-end">
+      <a href="https://github.com/whuang0" target="_blank" rel="noopener" class="nav-icon" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/whuang0/" target="_blank" rel="noopener" class="nav-icon" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <button id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu overlay -->
+  <div id="mobile-menu">
+    <a href="#about" class="mm-link">About</a>
+    <a href="#skills" class="mm-link">Skills</a>
+    <a href="#work" class="mm-link">Work</a>
+    <a href="#contact" class="mm-link">Contact</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">// Hello, I'm</p>
+      <h1 class="hero-name glitch-text reveal" data-text="WILSON HUANG">WILSON HUANG</h1>
+      <p class="hero-role reveal"><span class="role-bracket">&lt;</span><span id="typed-role">Software Developer</span><span class="role-bracket">/&gt;</span></p>
+      <p class="hero-bio reveal">CS graduate from Binghamton University with 2 years of software engineering experience. I build high-performance systems, ML pipelines, and full-stack applications — focused on AI, data engineering, and HPC.</p>
+      <div class="hero-ctas reveal">
+        <a href="#work" class="btn-primary">View My Work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#contact" class="btn-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-facts reveal">
+        <div class="hf-item">
+          <span class="hf-val">B.S.</span>
+          <span class="hf-label">Comp Sci</span>
+        </div>
+        <div class="hf-div"></div>
+        <div class="hf-item">
+          <span class="hf-val">2 Yrs</span>
+          <span class="hf-label">Experience</span>
+        </div>
+        <div class="hf-div"></div>
+        <div class="hf-item">
+          <span class="hf-val">5+</span>
+          <span class="hf-label">Projects</span>
+        </div>
+        <div class="hf-div"></div>
+        <div class="hf-item">
+          <span class="hf-val status-dot">● Open</span>
+          <span class="hf-label">to Work</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="section-head reveal">
+      <span class="sec-num">// 01</span>
+      <h2 class="sec-title">ABOUT <span>ME</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-bio reveal">
+        <p>I'm a Computer Science graduate from Binghamton University (May 2025) with nearly 2 years of professional experience as a Software Engineering Intern at Binghamton University's ITS team, where I modernized data pipelines serving 18,000+ students and cut batch runtimes by up to 89%.</p>
+        <p>My work spans high-performance computing, ML systems, full-stack development, and data engineering. I'm drawn to problems where design decisions have measurable impact — whether that's a 7.96× parallel speedup or 99.9% pipeline reliability at scale.</p>
+        <p>Outside of work I've shipped an iOS app with on-device LLM inference, placed 2nd at HackBU 2024, and led production infrastructure for a platform with 10,000+ monthly active users.</p>
+        <a href="mailto:whuang88@binghamton.edu" class="btn-primary" style="display:inline-flex;margin-top:24px;">
+          Get In Touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="about-info reveal" style="transition-delay:.15s">
+        <div class="info-card">
+          <span class="ic-label">University</span>
+          <span class="ic-val">Binghamton University</span>
+        </div>
+        <div class="info-card">
+          <span class="ic-label">Degree</span>
+          <span class="ic-val">B.S. Computer Science — May 2025</span>
+        </div>
+        <div class="info-card">
+          <span class="ic-label">Focus</span>
+          <span class="ic-val">AI / ML / HPC / Data Engineering</span>
+        </div>
+        <div class="info-card">
+          <span class="ic-label">Experience</span>
+          <span class="ic-val">2 Yrs · Software Engineer Intern</span>
+        </div>
+        <div class="info-card">
+          <span class="ic-label">Location</span>
+          <span class="ic-val">Binghamton, NY</span>
+        </div>
+        <div class="info-card">
+          <span class="ic-label">Status</span>
+          <span class="ic-val ic-open">● Available for Opportunities</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills">
+    <div class="section-head reveal">
+      <span class="sec-num">// 02</span>
+      <h2 class="sec-title">TECHNICAL <span>SKILLS</span></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-col reveal">
+        <h3 class="skills-group-title">Languages</h3>
+        <div class="skill"><div class="sk-top"><span class="sk-name">Python</span><span class="sk-pct">92%</span></div><div class="sk-bar"><div class="sk-fill" data-val="92"></div></div></div>
+        <div class="skill"><div class="sk-top"><span class="sk-name">C / C++</span><span class="sk-pct">85%</span></div><div class="sk-bar"><div class="sk-fill" data-val="85"></div></div></div>
+        <div class="skill"><div class="sk-top"><span class="sk-name">SQL</span><span class="sk-pct">84%</span></div><div class="sk-bar"><div class="sk-fill" data-val="84"></div></div></div>
+        <div class="skill"><div class="sk-top"><span class="sk-name">JavaScript</span><span class="sk-pct">78%</span></div><div class="sk-bar"><div class="sk-fill" data-val="78"></div></div></div>
+        <div class="skill"><div class="sk-top"><span class="sk-name">Swift</span><span class="sk-pct">74%</span></div><div class="sk-bar"><div class="sk-fill" data-val="74"></div></div></div>
+      </div>
+      <div class="skills-col reveal" style="transition-delay:.15s">
+        <h3 class="skills-group-title">Domains</h3>
+        <div class="skill"><div class="sk-top"><span class="sk-name">Data Engineering &amp; ETL</span><span class="sk-pct">88%</span></div><div class="sk-bar"><div class="sk-fill cyan" data-val="88"></div></div></div>
+        <div class="skill"><div class="sk-top"><span class="sk-name">Machine Learning</span><span class="sk-pct">82%</span></div><div class="sk-bar"><div class="sk-fill cyan" data-val="82"></div></div></div>
+        <div class="skill"><div class="sk-top"><span class="sk-name">Backend &amp; APIs</span><span class="sk-pct">80%</span></div><div class="sk-bar"><div class="sk-fill cyan" data-val="80"></div></div></div>
+        <div class="skill"><div class="sk-top"><span class="sk-name">High Performance Computing</span><span class="sk-pct">78%</span></div><div class="sk-bar"><div class="sk-fill cyan" data-val="78"></div></div></div>
+        <div class="skill"><div class="sk-top"><span class="sk-name">iOS / Mobile Dev</span><span class="sk-pct">72%</span></div><div class="sk-bar"><div class="sk-fill cyan" data-val="72"></div></div></div>
+      </div>
+    </div>
+    <div class="tools-row reveal" style="transition-delay:.2s">
+      <span class="tools-label">Tools &amp; Frameworks</span>
+      <div class="tools-chips">
+        <span class="chip">FastAPI</span>
+        <span class="chip">Flask</span>
+        <span class="chip">Node.js</span>
+        <span class="chip">Docker</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">MySQL</span>
+        <span class="chip">TensorFlow</span>
+        <span class="chip">PyTorch</span>
+        <span class="chip">scikit-learn</span>
+        <span class="chip">Pandas</span>
+        <span class="chip">NumPy</span>
+        <span class="chip">MLflow</span>
+        <span class="chip">Git</span>
+        <span class="chip">Linux</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WORK ── -->
+  <section id="work">
+    <div class="section-head reveal">
+      <span class="sec-num">// 03</span>
+      <h2 class="sec-title">MY <span>WORK</span></h2>
+    </div>
+
+    <!-- Featured project: k-NN -->
+    <div class="project-featured reveal">
+      <div class="pf-image pf-stat-panel">
+        <div class="psp-metric">7.96<span>×</span></div>
+        <div class="psp-label">PARALLEL SPEEDUP</div>
+        <div class="psp-sub">8 THREADS &nbsp;·&nbsp; 1M POINTS &nbsp;·&nbsp; 14.6s → 1.8s</div>
+      </div>
+      <div class="pf-info">
+        <div class="pf-meta">
+          <span class="proj-num">01</span>
+          <span class="badge-done">✓ Completed</span>
+        </div>
+        <h3 class="pf-title">Parallel k-NN Search Engine</h3>
+        <p class="pf-desc">Cache-efficient k-d tree with parallelized construction and search using multithreading and async execution. Achieves a 7.96× speedup over single-threaded baseline across 8 threads on 1 million point datasets, through careful cache and memory locality optimization.</p>
+        <div class="pf-tags">
+          <span class="tag">C++</span>
+          <span class="tag">Multithreading</span>
+          <span class="tag">k-d Tree</span>
+          <span class="tag">HPC</span>
+          <span class="tag">Algorithms</span>
+        </div>
+        <div class="pf-actions">
+          <a href="https://github.com/whuang0" target="_blank" rel="noopener" class="btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project cards -->
+    <div class="projects-row">
+
+      <div class="project-card reveal">
+        <div class="pc-image pc-accent" style="--accent:#05D9E8">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="40" height="40"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/></svg>
+          <span class="pc-accent-label">iOS &nbsp;·&nbsp; LLM</span>
+        </div>
+        <div class="pc-info">
+          <div class="pc-meta"><span class="proj-num">02</span><span class="badge-done">✓ Completed</span></div>
+          <h3 class="pc-title">Minima — iOS App</h3>
+          <p class="pc-desc">Task manager with on-device LLM inference via Qwen2/Ollama at ~400ms latency. Offline-first architecture using Swift async/await and local task persistence.</p>
+          <div class="pc-tags"><span class="tag">Swift</span><span class="tag">Qwen2</span><span class="tag">Ollama</span><span class="tag">iOS</span></div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:.1s">
+        <div class="pc-image pc-accent" style="--accent:#FCE22A">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="40" height="40"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+          <span class="pc-accent-label">92% &nbsp;·&nbsp; 2nd Place</span>
+        </div>
+        <div class="pc-info">
+          <div class="pc-meta"><span class="proj-num">03</span><span class="badge-done">✓ Completed · HackBU 2024</span></div>
+          <h3 class="pc-title">Meal Macronutrient Finder</h3>
+          <p class="pc-desc">Fine-tuned deep learning model on 101k food images, achieving 92% classification accuracy. React + Node.js web app for real-time meal macro lookup. Awarded 2nd place at HackBU 2024.</p>
+          <div class="pc-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">React</span></div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:.15s">
+        <div class="pc-image pc-accent" style="--accent:#FF2A6D">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="40" height="40"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+          <span class="pc-accent-label">99.9% &nbsp;·&nbsp; 5M+ Rows</span>
+        </div>
+        <div class="pc-info">
+          <div class="pc-meta"><span class="proj-num">04</span><span class="badge-done">✓ Completed</span></div>
+          <h3 class="pc-title">ETL Pipeline</h3>
+          <p class="pc-desc">Batch and incremental data workflows achieving 99.9% job success rate on 5M+ row datasets. Built with FastAPI orchestration, PostgreSQL, and centralized logging.</p>
+          <div class="pc-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">ETL</span></div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:.2s">
+        <div class="pc-image pc-accent" style="--accent:#05D9E8">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="40" height="40"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <span class="pc-accent-label">Live &nbsp;·&nbsp; Production</span>
+        </div>
+        <div class="pc-info">
+          <div class="pc-meta"><span class="proj-num">05</span><span class="badge-live">◉ Live</span></div>
+          <h3 class="pc-title">Landscaping CRM</h3>
+          <p class="pc-desc">Full-stack CRM in live production with normalized MySQL schema, RESTful API, role-based access control, bcrypt auth, and rate limiting. Deployed on DigitalOcean with Nginx + PM2.</p>
+          <div class="pc-tags"><span class="tag">Node.js</span><span class="tag">MySQL</span><span class="tag">JavaScript</span><span class="tag">DigitalOcean</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="section-head reveal">
+        <span class="sec-num">// 04</span>
+        <h2 class="sec-title">LET'S <span>CONNECT</span></h2>
+      </div>
+      <p class="contact-sub reveal">I'm actively looking for opportunities and always happy to chat about technology, projects, or potential collaborations. My inbox is always open.</p>
+      <div class="contact-cards reveal" style="transition-delay:.1s">
+        <a href="mailto:whuang88@binghamton.edu" class="ccard">
+          <div class="ccard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="ccard-body">
+            <span class="ccard-type">Email</span>
+            <span class="ccard-val">whuang88@binghamton.edu</span>
+          </div>
+          <svg class="ccard-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="https://github.com/whuang0" target="_blank" rel="noopener" class="ccard">
+          <div class="ccard-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <div class="ccard-body">
+            <span class="ccard-type">GitHub</span>
+            <span class="ccard-val">github.com/whuang0</span>
+          </div>
+          <svg class="ccard-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/whuang0/" target="_blank" rel="noopener" class="ccard">
+          <div class="ccard-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div class="ccard-body">
+            <span class="ccard-type">LinkedIn</span>
+            <span class="ccard-val">linkedin.com/in/whuang0</span>
+          </div>
+          <svg class="ccard-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span>Wilson Huang &copy; 2025</span>
+    <span class="footer-loc">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Binghamton, NY
+    </span>
+  </footer>
+
+  <script src="animations.js"></script>
+</body>
+</html>
