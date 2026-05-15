@@ -81,7 +81,7 @@ if (glitchEl) {
 }
 
 /* ── Typed cycling role ── */
-const roles    = ['Software Developer', 'ML Engineer', 'Systems Programmer', 'Data Engineer'];
+const roles    = ['Backend Engineer', 'Data Engineer', 'Software Developer', 'ML Engineer'];
 const typedEl  = document.getElementById('typed-role');
 let roleIdx = 0, charIdx = roles[0].length, deleting = false;
 
